@@ -11,3 +11,6 @@ RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*   
+
+# Chạy apache
+ENTRYPOINT ["/usr/local/bin/apache2-foreground"]

@@ -1,24 +1,25 @@
-version: '3.8'
+version: "3.8"
 
 services:
 #weberver block
   webserver:
     build: 
-      context: ./services/{PHP_VERSION} #Either a path to a directory containing a Dockerfile, or a url to a git repository.
+      context: ./services/${PHP_VERSION} #Either a path to a directory containing a Dockerfile, or a url to a git repository.
     container_name: "${COMPOSE_PROJECT_NAME}-${PHP_VERSION}"
     restart: "always"
     ports:
-      - "${HOST_WEBSV_PORT_NONESSL}:80"
-      - "${HOST_WEBSV_PORT_SSL}:443"
+      - "${M_HOST_WEBSV_PORT_NONESSL}:${HOST_WEBSV_PORT_NONESSL}"
+      - "${M_HOST_WEBSV_PORT_SSL}:${HOST_WEBSV_PORT_SSL}"
     links: #Gần giống như depends_on, nhưng lại hợp lý hơn 
       - database
     volumes:
-      - ${M_DOCUMENT_ROOT-./data/DOC_ROOT}:${APACHE_DOCUMENT_ROOT}:rw #Đây là một cú pháp mở rộng của bash được gọi là "parameter expansion". Trong trường hợp này, nếu biến DOCUMENT_ROOT không được đặt hoặc rỗng, thì giá trị mặc định sẽ là ./www. Đường dẫn này sẽ được ánh xạ đến /var/www/html 
-      - ${M_PHP_INI-./config/php/php.ini}:${APACHE_PHP_INI}:rw
-      - ${M_SSL_DIR-./config/ssl}:${APACHE_SSL_DIR}:rw
-      - ${M_VHOSTS_DIR-./config/vhosts}:${APACHE_VHOSTS_DIR}:rw
-      - ${M_APACHE_LOG_DIR-./logs/apache2}:${APACHE_LOG_DIR}:ro
-      - ${M_XDEBUG_LOG-./logs/xdebug}:${APACHE_DEBUG_LOG}:ro
+      - ${M_DOCUMENT_ROOT-./data/DOC_ROOT}:${APACHE_DOCUMENT_ROOT} #Đây là một cú pháp mở rộng của bash được gọi là "parameter expansion". Trong trường hợp này, nếu biến DOCUMENT_ROOT không được đặt hoặc rỗng, thì giá trị mặc định sẽ là ./www. Đường dẫn này sẽ được ánh xạ đến /var/www/html 
+      - ${M_PHP_INI-./config/php/php.ini}:${APACHE_PHP_INI}
+      - ${M_SSL_DIR-./config/ssl}:${APACHE_SSL_DIR}
+      - ${M_VHOSTS_DIR-./config/vhosts}:${APACHE_VHOSTS_DIR}
+      - ${M_APACHE_LOG_DIR-./logs/apache2}:${APACHE_LOG_DIR}
+      - ${M_XDEBUG_LOG-./logs/xdebug}:${APACHE_DEBUG_LOG}
+      - /etc/localtime:/etc/localtime
     environment:
       APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html}
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
@@ -27,12 +28,14 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       HOST_MACHINE_MYSQL_PORT: ${HOST_MACHINE_MYSQL_PORT}
-      XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
-
+      #XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
+    
 #database block
   database:
     build:
-      context: "./bin/${DB_VERSION}"
+      context: "./services/${DB_VERSION}"
     container_name: "${COMPOSE_PROJECT_NAME}-${DB_VERSION}"
     restart: "always"
     ports:
@@ -40,7 +43,7 @@ services:
     volumes:
       - ${MYSQL_INITDB_DIR-./config/initdb}:${MYSQL_INITDB_DIR}
       - ${M_MYSQL_DATA_DIR-./data/mysql}:${MYSQL_DATA_DIR}
-      - ${M_MYSQL_DATA_DIR-./logs/mysql}:${M_MYSQL_LOG}
+      - ${M_MYSQL_DATA_DIR-./logs/mysql}:${MYSQL_LOG_DIR}
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
