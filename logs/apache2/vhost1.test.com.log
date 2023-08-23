@@ -1,4 +1,0 @@
-vhost1.test.com:80 172.19.0.1 - - [22/Aug/2023:11:23:17 +0700] "GET / HTTP/1.1" 200 42169 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
-vhost1.test.com:80 172.19.0.1 - - [22/Aug/2023:11:23:18 +0700] "GET / HTTP/1.1" 200 42166 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
-vhost1.test.com:80 172.19.0.1 - - [22/Aug/2023:11:23:18 +0700] "GET / HTTP/1.1" 200 42168 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
-vhost1.test.com:80 172.19.0.1 - - [22/Aug/2023:11:23:18 +0700] "GET / HTTP/1.1" 200 42167 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
