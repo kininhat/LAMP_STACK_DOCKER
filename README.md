@@ -1,22 +1,22 @@
 # LAMP_STACK_DOCKER
 
-LAMP_STACK_DOCKER
+## Descrision
 
-## A basic LAMP stack environment built using Docker Compose. It consists of the following:
+### A basic LAMP stack environment built using Docker Compose. It consists of the following:
 
 * PHP
 * Apache
 * MySQL
 * phpMyAdmin
 
-## As of now, we have several different PHP versions. Use appropriate php version as needed:
+### As of now, we have several different PHP versions. Use appropriate php version as needed:
 
 * 5.6.40
 * 7.0.33
 * 7.1.33
 * 7.2.33
 * 7.3.33
-* 7.4.33
+* 7.4.33 (default)
 * 8.0.33
 * 8.1.0
 * 8.2.8
@@ -36,7 +36,32 @@ docker-compose up -d
 ##Your LAMP stack is now ready!! You can access it via http://localhost.
 ```
 
-## II. PHP extension support
+## II. [.env](./.env)
+
+* **PHP_VERSION** enter php version needed:
+  * php56 [./.services/php56](./.services/php56)
+  * php70 [./.services/php70](./.services/php70)
+  * php71 [./.services/php71](./.services/php71)
+  * php72 [./.services/php72](./.services/php72)
+  * php73 [./.services/php73](./.services/php73)
+  * php74 [./.services/php74](./.services/php74)
+  * php80 [./.services/php80](./.services/php80)
+  * php81 [./.services/php81](./.services/php81)
+  * php82 [./.services/php82](./.services/php82)
+
+* **DB_VERSION** enter mysql/mariadb version needed:
+  * mysql57 [./.services/mysql57](./.services/mysql57)
+  * mysql8 [./.services/mysql8](./.services/mysql8)
+  * mariadb103 [./.services/mariadb103](./.services/mariadb103)
+  * mariadb104 [./.services/mariadb104](./.services/mariadb104)
+  * mariadb105 [./.services/mariadb105](./.services/mariadb105)
+  * mariadb106 [./.services/mariadb106](./.services/mariadb106)
+
+## III. Config vhosts
+
+* Vhosts config at dir: [config/vhosts](https://github.com/kininhat/LAMP_STACK_DOCKER/tree/main/config/vhosts)
+
+## IV. PHP extension support
 
 ### php5.6.40
 
@@ -155,7 +180,3 @@ zlib
 Xdebug
 the ionCube PHP Loader
 ```
-
-## III. Config vhosts
-
-* Vhosts config at dir: [config/vhosts](https://github.com/kininhat/LAMP_STACK_DOCKER/tree/main/config/vhosts)
