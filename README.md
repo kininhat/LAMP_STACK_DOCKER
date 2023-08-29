@@ -61,7 +61,12 @@ docker-compose up -d
 
 * Vhosts config at dir: [config/vhosts](./config/vhosts)
 
-## IV. PHP extension support
+## IV. Phpmyadmin
+
+* Link access: <http://localhost:8080>
+* Port 8080 is variable **HOST_MACHINE_PMA_PORT** in [.env](./.env)
+
+## V. PHP extension support
 
 ### php5.6.40
 
