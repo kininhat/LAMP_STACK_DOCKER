@@ -1,0 +1,6 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.22.0.5. Set the 'ServerName' directive globally to suppress this message
+[Tue Aug 29 16:19:45.545637 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.56 (Debian) PHP/7.4.33 OpenSSL/1.1.1n configured -- resuming normal operations
+[Tue Aug 29 16:19:45.545671 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Aug 29 16:20:04.022035 2023] [autoindex:error] [pid 17] [client 172.22.0.1:34498] AH01276: Cannot serve directory /var/www/html/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+sh: 1: /usr/sbin/sendmail: not found
+[Tue Aug 29 16:21:24.446656 2023] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully

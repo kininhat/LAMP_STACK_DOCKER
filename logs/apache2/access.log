@@ -1,0 +1,7 @@
+localhost:80 172.22.0.1 - - [29/Aug/2023:16:20:04 +0700] "GET / HTTP/1.1" 403 491 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+localhost:80 172.22.0.1 - - [29/Aug/2023:16:20:04 +0700] "GET /favicon.ico HTTP/1.1" 404 487 "http://localhost/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+localhost:80 172.22.0.1 - - [29/Aug/2023:16:20:27 +0700] "GET /infor.php HTTP/1.1" 200 40569 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+localhost:80 127.0.0.1 - - [29/Aug/2023:16:20:46 +0700] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.56 (Debian) PHP/7.4.33 OpenSSL/1.1.1n (internal dummy connection)"
+localhost:80 127.0.0.1 - - [29/Aug/2023:16:20:47 +0700] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.56 (Debian) PHP/7.4.33 OpenSSL/1.1.1n (internal dummy connection)"
+localhost:80 127.0.0.1 - - [29/Aug/2023:16:20:48 +0700] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.56 (Debian) PHP/7.4.33 OpenSSL/1.1.1n (internal dummy connection)"
+localhost:80 172.22.0.1 - - [29/Aug/2023:16:21:19 +0700] "-" 408 0 "-" "-"

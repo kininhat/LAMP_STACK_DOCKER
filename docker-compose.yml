@@ -10,10 +10,10 @@ services:
     ports:
       - "${M_HOST_WEBSV_PORT_NONESSL}:${HOST_WEBSV_PORT_NONESSL}"
       - "${M_HOST_WEBSV_PORT_SSL}:${HOST_WEBSV_PORT_SSL}"
-    # links: #Gần giống như depends_on, nhưng lại hợp lý hơn 
-    #   - database
-    depends_on:
+    links: #Gần giống như depends_on, nhưng lại hợp lý hơn 
       - database
+    # depends_on:
+    #   - database
     volumes:
       - ${M_DOCUMENT_ROOT-./data/DOC_ROOT}:${APACHE_DOCUMENT_ROOT}:rw #Đây là một cú pháp mở rộng của bash được gọi là "parameter expansion". Trong trường hợp này, nếu biến DOCUMENT_ROOT không được đặt hoặc rỗng, thì giá trị mặc định sẽ là ./www. Đường dẫn này sẽ được ánh xạ đến /var/www/html 
       - ${M_PHP_INI-./config/php/php.ini}:${APACHE_PHP_INI}:rw
@@ -33,7 +33,6 @@ services:
       #XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
     #extra_hosts:
     #  - "host.docker.internal:host-gateway"    
-
 
 #database block
   database:
@@ -57,7 +56,9 @@ services:
   phpmyadmin:
     image: phpmyadmin
     container_name: "${COMPOSE_PROJECT_NAME}-phpmyadmin"
-    depends_on:
+    # depends_on:
+    #   - database
+    links: #Gần giống như depends_on, nhưng lại hợp lý hơn 
       - database
     environment:
       PMA_HOST: database
@@ -76,17 +77,19 @@ services:
       #- /sessions
       - ${M_PHP_INI-./config/php/php.ini}:${PHPMYAD_INI}:rw
 
+  memcached:
+    build:
+      context: "./services/memcached"
+    container_name: "${COMPOSE_PROJECT_NAME}-memcached"
+    restart: "always"
+    ports:
+      - "${HOST_MACHINE_MEMCACHE_PORT}:${HOST_MACHINE_MEMCACHE_PORT}"
+
 volumes:
   webserver:
   phpmyadmin:
   database:
 
-networks:
-  ${COMPOSE_PROJECT_NAME}:
-    driver: bridge
-
-  # redis:
-  #   container_name: "${COMPOSE_PROJECT_NAME}-redis"
-  #   image: redis:latest
-  #   ports:
-  #     - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
+# networks:
+#   ${COMPOSE_PROJECT_NAME}:
+#     driver: bridge
