@@ -39,27 +39,27 @@ docker-compose up -d
 ## II. [.env](./.env)
 
 * **PHP_VERSION** enter php version needed:
-  * php56 [./.services/php56](./.services/php56)
-  * php70 [./.services/php70](./.services/php70)
-  * php71 [./.services/php71](./.services/php71)
-  * php72 [./.services/php72](./.services/php72)
-  * php73 [./.services/php73](./.services/php73)
-  * php74 [./.services/php74](./.services/php74)
-  * php80 [./.services/php80](./.services/php80)
-  * php81 [./.services/php81](./.services/php81)
-  * php82 [./.services/php82](./.services/php82)
+  * [php56](./.services/php56)
+  * [php70](./.services/php70)
+  * [php71](./.services/php71)
+  * [php72](./.services/php72)
+  * [php73](./.services/php73)
+  * [php74](./.services/php74)
+  * [php80](./.services/php80)
+  * [php81](./.services/php81)
+  * [php82](./.services/php82)
 
 * **DB_VERSION** enter mysql/mariadb version needed:
-  * mysql57 [./.services/mysql57](./.services/mysql57)
-  * mysql8 [./.services/mysql8](./.services/mysql8)
-  * mariadb103 [./.services/mariadb103](./.services/mariadb103)
-  * mariadb104 [./.services/mariadb104](./.services/mariadb104)
-  * mariadb105 [./.services/mariadb105](./.services/mariadb105)
-  * mariadb106 [./.services/mariadb106](./.services/mariadb106)
+  * [mysql57](./.services/mysql57)
+  * [mysql8](./.services/mysql8)
+  * [mariadb103](./.services/mariadb103)
+  * [mariadb104](./.services/mariadb104)
+  * [mariadb105](./.services/mariadb105)
+  * [mariadb106](./.services/mariadb106)
 
 ## III. Config vhosts
 
-* Vhosts config at dir: [config/vhosts](https://github.com/kininhat/LAMP_STACK_DOCKER/tree/main/config/vhosts)
+* Vhosts config at dir: [config/vhosts](./config/vhosts)
 
 ## IV. PHP extension support
 
