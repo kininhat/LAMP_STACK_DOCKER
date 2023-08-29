@@ -6,10 +6,10 @@
 
 * PHP
 * Apache
-* MySQL
+* MySQL/Mariadb
 * phpMyAdmin
 
-### As of now, we have several different PHP versions. Use appropriate php version as needed:
+### PHP details version's supported
 
 * 5.6.40
 * 7.0.33
@@ -50,7 +50,7 @@ docker-compose up -d
   * [php82](./services/php82)
 
 * **DB_VERSION** enter mysql/mariadb version needed:
-  * [mysql57](./services/mysql57)
+  * [mysql57](./services/mysql57) (default)
   * [mysql8](./services/mysql8)
   * [mariadb103](./services/mariadb103)
   * [mariadb104](./services/mariadb104)
