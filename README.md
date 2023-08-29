@@ -25,7 +25,7 @@ LAMP_STACK_DOCKER
 ## I. Installation
 
 * Clone this repository on your local computer
-* Configure file in **.env** [.env](./.env)
+* Configure file in [.env](./.env)
 * Run the **docker-compose up -d**
 
 ```bash
